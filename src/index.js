@@ -18,12 +18,20 @@ class WKValidator {
   }
   check(data) {
     let keys = Object.keys(data);
-    for (let i = 0, iLen = keys.length; i < iLen; i++) {
-      let curRules = this._ruleList.filter((item) => item.key == keys[i]);
-      if (curRules.length) {
-        if (!validator(data[keys[0]], curRules[0].mths)) return false;
-      }
+
+    this.ruleMixValue(data);
+
+    for (let i = 0, iLen = this._ruleList.length; i < iLen; i++) {
+      const curRule = this._ruleList[i];
+      if (!validator(curRule)) return false;
     }
+
+    return true;
+  }
+  ruleMixValue(data) {
+    this._ruleList.forEach((item) => {
+      item.value = data[item.key] || "";
+    });
   }
 }
 
@@ -37,7 +45,7 @@ const rules = {
   },
 };
 const data = {
-  username: "1234567879dfdfdfd",
+  username: "123456",
   password: "",
 };
 

@@ -10,9 +10,11 @@ export function pipe2Rule(pipe) {
     let arrSplit = item.split("--");
     let mth = String(arrSplit[0]).trim();
     if (mthTypes.hasOwnProperty(mth)) {
+      let type = mthTypes[mth];
       ret.push({
-        method: mthTypes[mth],
+        method: type.handler,
         params: getParams8Pipe(arrSplit),
+        message: type.message,
       });
     }
   });
@@ -35,9 +37,11 @@ export default function rule2methods(rule) {
     Object.keys(rule).map((key) => {
       let value = rule[key];
       if (mthTypes.hasOwnProperty(key)) {
+        let type = mthTypes[key];
         ret.push({
-          method: mthTypes[key],
+          method: type.handler,
           params: typeof value === "number" ? [value] : [],
+          message: type.message,
         });
       }
     });
