@@ -1,6 +1,19 @@
+const isWxMini = typeof wx !== 'undefined' && wx.showToast;
+const isBrowser = typeof window !== 'undefined'
+
 function toast(tips) {
-  let tipsNode = createElement(tips);
-  render(tipsNode);
+  
+  if(isWxMini) {
+    wx.showToast({
+      title: tips,
+      icon: 'none'
+    })
+  } else if(isBrowser) {
+    let tipsNode = createElement(tips);
+    render(tipsNode);
+  } else {
+    console.log(tips)
+  }
 }
 
 function createElement(message, tagName = "div") {
