@@ -44,15 +44,15 @@ const methods = {
     return reg.test(value)
   },
   checkLength(value, length) {
-    if(isEmpty(value)) return false
+    if(checkIsEmpty(value)) return false
     return value.length === length
   },
   checkMinLength (value, len) {
-    if(isEmpty(value)) return false
+    if(checkIsEmpty(value)) return false
     return value.length >= len;
   },
   checkMaxLength (value, len) {
-    if(isEmpty(value)) return false
+    if(checkIsEmpty(value)) return false
     return value.length <= len;
   },
   checkMin(target, min) {

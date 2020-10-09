@@ -10,13 +10,13 @@ class WKValidator {
     this._toast = toast;
   }
 
-  rules(rulesMap, messageMap) {
+  rules(rulesMap, messageMap = {}) {
     let keys = Object.keys(rulesMap);
     if (!keys.length) return;
     keys.map((key) => {
       this._ruleList.push({
         key,
-        mths: rule2methods(rulesMap[key], messageMap[key]) || [],
+        mths: rule2methods(rulesMap[key], messageMap[key] || {}) || [],
       });
     });
     return this;
