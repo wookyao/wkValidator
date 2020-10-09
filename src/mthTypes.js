@@ -102,5 +102,9 @@ export default {
   ipv6: {
     handler: 'isIPV6',
     message: '不是有效的IPV6地址',
+  },
+  date: {
+    handler: 'isDate',
+    message: '请输入有效的日期'
   }
 };

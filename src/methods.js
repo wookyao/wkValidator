@@ -70,6 +70,9 @@ const methods = {
   notContains(value, str) {
     if(!isString(value)) return false
     return value.indexOf(str) === -1
+  },
+  isDate(value) {
+    return !/Invalid|NaN/.test(new Date(value).toString())
   }
   
 };
