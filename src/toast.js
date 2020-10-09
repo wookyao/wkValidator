@@ -1,7 +1,4 @@
-function toast(field, msg, params) {
-  let limit = params.join(',');
-  msg = msg.replace(/\$n|\$s/, limit);
-  let tips = `字段[${field}]${msg}`;
+function toast(tips) {
   let tipsNode = createElement(tips);
   render(tipsNode);
 }

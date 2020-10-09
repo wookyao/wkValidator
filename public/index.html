@@ -11,7 +11,23 @@
     <script>
       var wv = new wkValidator();
 
-      console.log(wv.checkValue('date', '2020/10/10'))
+      wv.setToast(console.log).rules({
+        username: {
+          required: true,
+          maxLength: 12,
+          minLnegth: 3
+        }
+      }, {
+        username: {
+          required: '必填',
+          maxLength: '不能大于12个字符',
+          minLength: '不能小于3个字符'
+        }
+      }).check({
+        username: ''
+      })
+
+      console.log(wv.validator('date', '2020/10/10'))
     </script>
     
   </body>

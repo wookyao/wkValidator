@@ -29,7 +29,11 @@ function getParams8Pipe(arr) {
   });
 }
 
-export default function rule2methods(rule) {
+function getMessage() {
+
+}
+
+export default function rule2methods(rule, tips) {
   if (typeof rule === "string") {
     return pipe2Rule(rule);
   } else {
@@ -42,6 +46,7 @@ export default function rule2methods(rule) {
           method: type.handler,
           params: typeof value === "number" ? [value] : [],
           message: type.message,
+          customerTips: tips[key] || ''
         });
       }
     });
