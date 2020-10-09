@@ -39,6 +39,10 @@ const methods = {
     }
     return true;
   },
+  regular(value, reg) {
+    if(!isRegExp(reg)) return false
+    return reg.test(value)
+  },
   checkLength(value, length) {
     if(isEmpty(value)) return false
     return value.length === length

@@ -1,6 +1,6 @@
 export default {
-  reg: {
-    handler: "checkReg",
+  regular: {
+    handler: "regular",
     message: "不符合此验证规则",
   },
   required: {
