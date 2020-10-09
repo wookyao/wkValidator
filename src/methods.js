@@ -1,25 +1,59 @@
-import mthTypes from "./mthTypes";
+import { 
+  isEmpty as checkIsEmpty, 
+  isString, 
+  isNumber, 
+  isJson, 
+  isArray,
+  isInstance
+} from './types'
 
 const methods = {
-  required: function (value) {
+  isNumber,
+  isArray,
+  isJson,
+  isString,
+  isInstance,
+  isEmpty(value) {
+    return checkIsEmpty(value)
+  },
+  isNotEmpty(value) {
+    return !checkIsEmpty(value)
+  },
+  required (value) {
     if (!value) {
       return false;
     }
     return true;
   },
-  checkMinLength: function (value, len) {
+  checkLength(value, length) {
+    if(isEmpty(value)) return false
+    return value.length === length
+  },
+  checkMinLength (value, len) {
+    if(isEmpty(value)) return false
     return value.length >= len;
   },
-  checkMaxLength: function (value, len) {
+  checkMaxLength (value, len) {
+    if(isEmpty(value)) return false
     return value.length <= len;
   },
-  isEmpty(value) {
-    console.log(value);
-    if (!value) {
-      return false;
-    }
-    return true;
+  checkMin(target, min) {
+    if(!isNumber(target)) return false
+    return target >= min
   },
+  checkMax(target, max) {
+    if(!isNumber(target)) return false
+    return target <= max
+  },
+  isContains(value, str) {
+    if(!isString(value)) return false
+    return value.indexOf(str) !== -1;
+  },
+  notContains(value, str) {
+    if(!isString(value)) return false
+    return value.indexOf(str) === -1
+  }
+  
 };
 
 export default methods;

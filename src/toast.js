@@ -1,15 +1,8 @@
 function toast(field, msg, params) {
-  let limit = "";
-  params.map((item) => {
-    if (!isNaN(item)) {
-      limit += item;
-    }
-  });
-  msg = msg.replace("$n", limit);
+  let limit = params.join(',');
+  msg = msg.replace(/\$n|\$s/, limit);
   let tips = `字段[${field}]${msg}`;
-
   let tipsNode = createElement(tips);
-
   render(tipsNode);
 }
 

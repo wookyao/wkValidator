@@ -1,7 +1,8 @@
 import methods from "./methods";
 import toast from "./toast";
 
-function validator(rule) {
+function validator(rule, data) {
+  console.log(rule)
   const { mths, key, value } = rule;
   for (let i = 0, iLen = mths.length; i < iLen; i++) {
     const { method, params, message } = mths[i];
