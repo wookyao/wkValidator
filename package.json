@@ -1,6 +1,6 @@
 {
-  "name": "wk_validator",
-  "version": "0.0.1",
+  "name": "@wk/validator",
+  "version": "0.1.0",
   "description": "验证工具",
   "main": "lib/wk_validator.min.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "clearDist": "rimraf \"./dist\"",
     "clearLib": "rimraf \"./lib\"",
     "clean": "npm run clearLib && npm run clearDist",
-    "build:pro": "npm run clean && cross-env APP_ENV=production npm run build"
+    "build:pro": "npm run clearLib && cross-env APP_ENV=production npm run build"
   },
   "keywords": [
     "validator",

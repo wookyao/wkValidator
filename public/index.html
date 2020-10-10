@@ -11,20 +11,7 @@
     <script>
       var wv = new wkValidator();
 
-      const data = {
-        username: 'wookyao',
-        password: '123456'
-      }
-      wv.rules({
-        username: {
-          require: true,
-          maxLength: 10
-        },
-        password: {
-          require: true,
-          minLength: 6
-        }
-      }).check(data)
+      console.log(wv.validator('number', '123'))
     </script>
     
   </body>

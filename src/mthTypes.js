@@ -106,5 +106,13 @@ export default {
   date: {
     handler: 'isDate',
     message: '请输入有效的日期'
+  },
+  equalTo: {
+    handler: 'isEqualTo',
+    message: '两次输入不一致'
+  },
+  notEqualTo: {
+    handler: 'isNotEqualTo',
+    message: '两次输入不能一致'
   }
 };

@@ -1,4 +1,5 @@
-import rule2methods from "./rule2methods";
+import generateRuleMaps from "./createRuleMaps";
+import ruleMapsMixValue from './ruleMapsMixValue'
 import validator from "./validator";
 import mthTypes from './mthTypes'
 import methods from './methods'
@@ -13,27 +14,23 @@ class WKValidator {
   rules(rulesMap, messageMap = {}) {
     let keys = Object.keys(rulesMap);
     if (!keys.length) return;
+    this._ruleList = []
     keys.map((key) => {
       this._ruleList.push({
         key,
-        mths: rule2methods(rulesMap[key], messageMap[key] || {}) || [],
+        mths: generateRuleMaps(rulesMap[key], messageMap[key] || {}) || [],
       });
     });
     return this;
   }
   check(data) {
-    this.ruleMixValue(data);
+    this._ruleList = ruleMapsMixValue(this._ruleList, data);
     for (let i = 0, iLen = this._ruleList.length; i < iLen; i++) {
       const curRule = this._ruleList[i];
       if (!validator(curRule, this._toast)) return false;
     }
 
     return true;
-  }
-  ruleMixValue(data) {
-    this._ruleList.forEach((item) => {
-      item.value = data[item.key] || null;
-    });
   }
 
   validator() {

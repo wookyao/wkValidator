@@ -1,5 +1,6 @@
 import { 
   isEmpty as checkIsEmpty, 
+  isNumber as checkIsNumber,
   isString, 
   isJson, 
   isArray,
@@ -14,7 +15,6 @@ const regular = {
   isTel: /^(\d{3,4}-)?\d{7,8}$/,
   isUrl: /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i,
   isIDCard: /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/,
-  isNumber: /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/,
   isDigits: /^\d+$/,
   isInteger: /^-?\d+$/,
   isChinese: /^[\u4e00-\u9fa5]+$/,
@@ -27,6 +27,9 @@ const methods = {
   isJson,
   isString,
   isInstance,
+  isNumber(value) {
+    return checkIsNumber(value)
+  },
   isEmpty(value) {
     return checkIsEmpty(value)
   },
@@ -56,11 +59,11 @@ const methods = {
     return value.length <= len;
   },
   checkMin(target, min) {
-    if(!isNumber(target)) return false
+    if(!checkIsNumber(target)) return false
     return target >= min
   },
   checkMax(target, max) {
-    if(!isNumber(target)) return false
+    if(!checkIsNumber(target)) return false
     return target <= max
   },
   isContains(value, str) {
@@ -73,6 +76,13 @@ const methods = {
   },
   isDate(value) {
     return !/Invalid|NaN/.test(new Date(value).toString())
+  },
+
+  isEqualTo(value, target) {
+    return value === target;
+  },
+  isNotEqualTo(value, target) {
+    return value !== target
   }
   
 };

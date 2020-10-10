@@ -29,11 +29,9 @@ function getParams8Pipe(arr) {
   });
 }
 
-function getMessage() {
 
-}
 
-export default function rule2methods(rule, tips) {
+export default function generateRuleMaps(rule, tips) {
   if (typeof rule === "string") {
     return pipe2Rule(rule);
   } else {
@@ -44,7 +42,7 @@ export default function rule2methods(rule, tips) {
         let type = mthTypes[key];
         ret.push({
           method: type.handler,
-          params: typeof value === "number" ? [value] : [],
+          params: ["number", 'string'].includes(typeof value)  ? [value] : [],
           message: type.message,
           customerTips: tips[key] || ''
         });
