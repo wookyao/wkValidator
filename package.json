@@ -20,7 +20,7 @@
     "web validator",
     "miniproject validator"
   ],
-  "author": "wook.yao@foxmail.com",
+  "author": "YaoXu <wook.yao@foxmail.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.11.6",
@@ -36,5 +36,13 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^1.0.4",
     "rollup-plugin-uglify": "^6.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wookyao/wkValidator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wookyao/wkValidator/issues"
+  },
+  "homepage": "https://github.com/wookyao/wkValidator#readme"
 }

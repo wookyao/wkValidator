@@ -16,10 +16,13 @@ class WKValidator {
     if (!keys.length) return;
     this._ruleList = []
     keys.map((key) => {
-      this._ruleList.push({
-        key,
-        mths: generateRuleMaps(rulesMap[key], messageMap[key] || {}) || [],
-      });
+      if(rulesMap[key] || (typeof rulesMap[key] == 'number')) {
+        this._ruleList.push({
+          key,
+          mths: generateRuleMaps(rulesMap[key], messageMap[key] || {}) || [],
+        });
+      }
+      
     });
     return this;
   }

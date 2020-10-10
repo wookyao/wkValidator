@@ -12,7 +12,7 @@ const rollupConfig = {
   output: {
     file: "dist/wkValidator.js",
     format: "umd",
-    name: "wkValidator",
+    name: "WkValidator",
   },
   plugins: [
     nodeResolve(),

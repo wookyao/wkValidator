@@ -1,6 +1,6 @@
 const expect = require('chai').expect
-const wkValidator = require('../lib/wk_validator.min');
-const wv = new wkValidator()
+const WkValidator = require('../lib/wk_validator.min');
+const wv = new WkValidator()
 
 describe('Testing validator', () => {
 

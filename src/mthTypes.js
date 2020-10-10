@@ -9,15 +9,15 @@ export default {
   },
   min: {
     handler: "checkMin",
-    message: "不能小于$n",
+    message: "请输入大于$n的数字",
   },
   max: {
     handler: "checkMax",
-    message: "不能大于$n",
+    message: "请输入小于$n的数字",
   },
   isEmpty: {
     handler: 'isEmpty',
-    message: '不是空'
+    message: '不能输入任何值'
   },
   notEmpty: {
     handler: "isNotEmpty",
@@ -33,7 +33,7 @@ export default {
   },
   maxLength: {
     handler: "checkMaxLength",
-    message: "做多能输入$n个字符",
+    message: "最多只能输入$n个字符",
   },
   contains: {
     handler: 'isContains',
