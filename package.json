@@ -1,5 +1,5 @@
 {
-  "name": "@wk/validator",
+  "name": "wk-validator",
   "version": "0.1.0",
   "description": "验证工具",
   "main": "lib/wk_validator.min.js",

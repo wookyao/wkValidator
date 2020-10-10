@@ -5,15 +5,15 @@
 ## 安装
 
 ```bash
-  npm i -S @wk/validator
+  npm i -S wk-validator
   or
-  yarn add @wk/validator
+  yarn add wk-validator
 ```
 
 ## 使用
 
 ```javascript
-  import WkValidator from '@wk/validator';
+  import WkValidator from 'wk-validator';
 
   const wv = new WkValidator();
 
@@ -116,7 +116,7 @@ new WkValidator().validator((rule: string), (data: any), ...args);
 ### 示例
 
 ```javascript
-import WkValidator from "@wk/validator";
+import WkValidator from "wk-validator";
 const wv = new WkValidator();
 
 let ret: Boolean = wv.validator("email", "125@qq.com");
@@ -150,7 +150,7 @@ let ret: Boolean = wv.rules((ruleMaps: Object)).check((data: Object));
 ### 示例
 
 ```javascript
-import WkValidator from "@wk/validator";
+import WkValidator from "wk-validator";
 const wv = new WkValidator();
 
 const data = {
