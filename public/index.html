@@ -9,9 +9,28 @@
     <script src="../dist/wkValidator.js"></script>
 
     <script>
-      var wv = new wkValidator();
+      var wv = new WkValidator();
 
-      console.log(wv.validator('number', '123'))
+      let source = {
+        username: 'wook',
+        age: 18,
+        class: 5,
+        skills: ['js', 'css', 'html'],
+        info: {
+          name: 'yao'
+        }
+      }
+      let target = {
+        username: 'wook',
+        age: 18,
+        class: 5,
+        skills: ['css', 'js', 'html'],
+        info: {
+          name: 'yao'
+        }
+      }
+
+      console.log(wv.validator('notEqualTo', source, target))
     </script>
     
   </body>

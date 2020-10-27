@@ -80,4 +80,27 @@ describe('Testing validator', () => {
 
 
   })
+
+  it('wv.isEqualTo', () => {
+    let source = [1,'2',true, {username: 'wook'}]
+    let target = [1,'2',true, {username: 'wook', age: 15}]
+    expect(wv.validator('equalTo', source, target)).to.not.be.ok
+    expect(wv.validator('equalTo', {
+      username: 'wook',
+      age: 18,
+      class: 5,
+      skills: ['js', 'css', 'html'],
+      info: {
+        name: 'yao'
+      }
+    }, {
+      username: 'wook',
+      age: 18,
+      class: 5,
+      skills: ['js', 'css', 'html'],
+      info: {
+        name: 'yao'
+      }
+    })).to.be.ok
+  })
 });

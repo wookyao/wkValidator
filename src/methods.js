@@ -8,6 +8,8 @@ import {
   isRegExp
 } from './types'
 
+import isEqual from './isEqual'
+
 
 const regular = {
   isEmail: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
@@ -79,10 +81,10 @@ const methods = {
   },
 
   isEqualTo(value, target) {
-    return value === target;
+    return isEqual(value, target);
   },
   isNotEqualTo(value, target) {
-    return value !== target
+    return !isEqual(value, target);
   }
   
 };
