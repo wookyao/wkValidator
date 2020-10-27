@@ -118,9 +118,28 @@ new WkValidator().validator((rule: string), (data: any), ...args);
 ```javascript
 import WkValidator from "wk-validator";
 const wv = new WkValidator();
+let source = {
+  username: "wook",
+  age: 18,
+  class: 5,
+  skills: ["js", "css", "html"],
+  info: {
+    name: "yao",
+  },
+};
+let target = {
+  username: "wook",
+  age: 18,
+  class: 5,
+  skills: ["css", "js", "html"],
+  info: {
+    name: "yao",
+  },
+};
 
 let ret: Boolean = wv.validator("email", "125@qq.com");
 wv.validator("equalTo", "123456", "12345678");
+wv.validator("equalTo", source, target);
 wv.validator("array", [12]);
 wv.validator("required");
 ```
